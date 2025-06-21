@@ -1,0 +1,281 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Хедер */
+header {
+    position: relative;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.header-content {
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.artist-photo {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 1/1;
+    margin: 40px auto 40px;
+    border-radius: 20px;
+    object-position: top;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.artist-name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.artist-tagline {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.header-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent 0%, #121212 100%);
+    z-index: 1;
+}
+
+/* Плашка с концертом */
+.concert-banner {
+    /* position: relative; */
+    /* z-index: 3; */
+    background: linear-gradient(135deg, #ff4d4d, #f9cb28);
+    color: #000;
+    padding: 15px 25px;
+    /* margin: auto auto; */
+    margin: 20px auto 0;
+    max-width: 800px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.concert-info {
+    flex: 1;
+}
+
+.concert-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.concert-date {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.concert-venue {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.buy-tickets {
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
+.buy-tickets:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+@keyframes pulse {
+    0% { transform: translateY(-50px) scale(1); }
+    50% { transform: translateY(-50px) scale(1.02); }
+    100% { transform: translateY(-50px) scale(1); }
+}
+
+/* Основной контент */
+main {
+    position: relative;
+    background-color: #121212;
+    padding: 60px 20px;
+    z-index: 2;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bio-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, #ff4d4d, #f9cb28);
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+/* Ссылки на платформы */
+.links-section {
+    margin-bottom: 60px;
+}
+
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.platform-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.platform-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.platform-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.platform-name {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+    .artist-name {
+        font-size: 2.2rem;
+    }
+    
+    .artist-tagline {
+        font-size: 1rem;
+    }
+    
+    .concert-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+        margin: 30px 20px 0;
+    }
+    
+    .buy-tickets {
+        margin: 15px 0 0;
+        width: 100%;
+    }
+    
+    .platforms-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .bio-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .artist-photo {
+        width: 100%;
+        /* height: 150px; */
+    }
+    
+    .artist-name {
+        font-size: 1.8rem;
+    }
+    
+    .concert-banner {
+        margin: 20px 15px 0;
+    }
+    
+    .platforms-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
