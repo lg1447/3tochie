@@ -129,12 +129,6 @@ header {
     transform: translateY(-2px);
 }
 
-@keyframes pulse {
-    0% { transform: translateY(-50px) scale(1); }
-    50% { transform: translateY(-50px) scale(1.02); }
-    100% { transform: translateY(-50px) scale(1); }
-}
-
 /* Основной контент */
 main {
     position: relative;
