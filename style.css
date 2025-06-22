@@ -3,13 +3,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+}
+
+:root {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --accent-color: #bc41e6;
+    --accent-second-color: #8106A9;
 }
 
 body {
-    background-color: #121212;
-    color: #ffffff;
+    /* background-color: var(--bg-color); */
+    background: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
+    font-family: 'Arial', sans-serif;
 }
 
 a {
@@ -20,6 +28,8 @@ a {
 
 /* Хедер */
 header {
+    background: var(--bg-color);
+    background: linear-gradient(0deg, var(--bg-color) 0%, rgba(75, 8, 92, 1) 100%);
     position: relative;
     /* height: 100vh; */
     display: flex;
@@ -64,21 +74,11 @@ header {
     margin-bottom: 30px;
 }
 
-.header-gradient {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px;
-    background: linear-gradient(to bottom, transparent 0%, #121212 100%);
-    z-index: 1;
-}
-
 /* Плашка с концертом */
 .concert-banner {
     /* position: relative; */
     /* z-index: 3; */
-    background: linear-gradient(135deg, #ff4d4d, #f9cb28);
+    background: linear-gradient(135deg, var(--accent-second-color), var(--accent-color));
     color: #000;
     padding: 15px 25px;
     /* margin: auto auto; */
@@ -142,10 +142,6 @@ main {
     margin: 0 auto;
 }
 
-.bio-section {
-    margin-bottom: 60px;
-}
-
 .section-title {
     font-size: 2rem;
     margin-bottom: 20px;
@@ -159,9 +155,9 @@ main {
     position: absolute;
     bottom: -5px;
     left: 0;
-    width: 50px;
+    width: 60px;
     height: 3px;
-    background: linear-gradient(to right, #ff4d4d, #f9cb28);
+    background: linear-gradient(to left, var(--accent-color), var(--accent-second-color));
 }
 
 .bio-text {
@@ -169,6 +165,10 @@ main {
     line-height: 1.8;
     margin-bottom: 20px;
     opacity: 0.9;
+}
+
+.show-more {
+    display: none;
 }
 
 /* Ссылки на платформы */
@@ -201,8 +201,16 @@ main {
 }
 
 .platform-icon {
+    display: none;
     width: 40px;
     height: 40px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.lgi {
+    font-size: 40px;
+    color: var(--accent-color);
     margin-bottom: 10px;
     object-fit: contain;
 }
@@ -235,7 +243,7 @@ footer {
         flex-direction: column;
         text-align: center;
         padding: 15px;
-        margin: 30px 20px 0;
+        margin: 50px 20px 0;
     }
     
     .buy-tickets {
@@ -250,9 +258,46 @@ footer {
     .section-title {
         font-size: 1.8rem;
     }
-    
+
     .bio-text {
-        font-size: 1rem;
+        font-size: .9rem;
+        margin-bottom: 30px;
+        max-height: 4.5rem;
+        transition: max-height 2s ease;
+        overflow: hidden;
+    }
+
+    .bio-text::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30%;
+        background: linear-gradient(to top, var(--bg-color) 30%, transparent 100%);
+        transition: opacity 1s ease;
+    }
+
+    .bio-text.expanded {
+        max-height: 25rem;
+    }
+
+    .bio-text.expanded::before {
+        opacity: 0;
+    }
+
+    .show-more {
+        display: block;
+        font-size: 3rem;
+        opacity: .9;
+        margin: -30px auto -30px;
+        max-height: 5rem;
+        transition: opacity .5s ease, max-height 1s ease;
+    }
+
+    .show-more.expanded {
+        opacity: 0;
+        max-height: 0rem;
     }
 }
 
@@ -267,10 +312,19 @@ footer {
     }
     
     .concert-banner {
-        margin: 20px 15px 0;
+        margin: 40px 15px 0;
     }
     
     .platforms-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bio-text {
+        max-height: 4.5rem;
+        transition: max-height 3s ease;
+    }
+
+    .bio-text.expanded {
+        max-height: 50rem;
     }
 }
