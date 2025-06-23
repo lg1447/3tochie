@@ -329,10 +329,21 @@ footer {
 
     .bio-text {
         max-height: 4.5rem;
+        transition: max-height 2s ease;
+    }
+
+    .bio-text.expanded {
+        max-height: 28rem;
+    }
+}
+
+@media (max-width: 359px) {
+    .bio-text {
+        max-height: 4.5rem;
         transition: max-height 3s ease;
     }
 
     .bio-text.expanded {
-        max-height: 50rem;
+        max-height: 40rem;
     }
 }
