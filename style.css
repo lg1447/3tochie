@@ -290,8 +290,17 @@ footer {
         display: block;
         font-size: 3rem;
         opacity: .9;
-        margin: -30px auto -30px;
         max-height: 5rem;
+    }
+
+    .show-more i {
+        display: inline-block;
+        transform: translateY(.4em);
+        transition: transform 1s ease;
+    }
+
+    .show-more.expanded i {
+        transform: translateY(-.4em);
     }
 
     /* .show-more.expanded {
