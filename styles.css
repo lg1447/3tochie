@@ -200,14 +200,6 @@ main {
     transform: translateY(-3px);
 }
 
-.platform-icon {
-    display: none;
-    width: 40px;
-    height: 40px;
-    margin-bottom: 10px;
-    object-fit: contain;
-}
-
 .lgi {
     font-size: 40px;
     color: var(--accent-color);
