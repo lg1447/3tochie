@@ -133,12 +133,12 @@ header {
 }
 
 .gallery-prev {
-    /* opacity: 0; */
+    opacity: 0;
     left: 0px;
 }
 
 .gallery-next {
-    /* opacity: 0; */
+    opacity: 0;
     right: 0px;
 }
 
