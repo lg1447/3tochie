@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
     track.addEventListener('touchstart', e => {
         touchStartX = e.changedTouches[0].screenX;
         e.preventDefault();
-    });
+    }, { passive: false });
     
     track.addEventListener('touchend', e => {
         const touchEndX = e.changedTouches[0].screenX;
