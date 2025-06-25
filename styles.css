@@ -343,7 +343,7 @@ footer {
 
     .gallery-prev, .gallery-next {
         opacity: 0;
-        width: 30%;
+        width: 20%;
         height: 100%;
         padding: 10px;
         font-size: 14px;
