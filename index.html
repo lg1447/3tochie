@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ТРОЕТОЧИЕ</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -26,7 +27,14 @@
 <body>
     <header>
         <div class="header-content">
-            <img src="/images/photo.jpg" alt="Фото исполнителя" class="artist-photo">
+            <!-- <img src="/images/photo.jpg" alt="Фото исполнителя" class="artist-photo"> -->
+            <div class="gallery-container">
+                <div class="gallery-track">
+                    <!-- Фотографии будут добавлены через JS -->
+                </div>
+                <button class="gallery-prev">❮</button>
+                <button class="gallery-next">❯</button>
+            </div>
             <h1 class="artist-name">ТРОЕТОЧИЕ</h1>
             <!-- <p class="artist-tagline"></p> -->
             <p class="bio-text" id="bio-text" onclick="document.getElementById('bio-text').classList.add('expanded'); document.getElementById('show-more').classList.add('expanded');">

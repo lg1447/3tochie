@@ -26,6 +26,10 @@ a {
     color: inherit;
 }
 
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
 /* Хедер */
 header {
     background: var(--bg-color);
@@ -47,7 +51,7 @@ header {
     margin: 0 auto;
 }
 
-.artist-photo {
+/* .artist-photo {
     position: relative;
     width: 100%;
     max-width: 800px;
@@ -59,6 +63,85 @@ header {
     border: 2px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+} */
+
+/* Стили галереи */
+.gallery-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    overflow: hidden;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, .5); */
+}
+
+.gallery-container:hover .gallery-prev {
+    opacity: 1;
+    left: 20px;
+}
+.gallery-container:hover .gallery-next {
+    opacity: 1;
+    right: 20px;
+}
+
+.gallery-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+    gap: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.gallery-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.gallery-slide img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, .5); */
+}
+
+.gallery-prev, .gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, .2);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.gallery-prev:hover, .gallery-next:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.gallery-prev {
+    opacity: 0;
+    left: 0px;
+}
+
+.gallery-next {
+    opacity: 0;
+    right: 0px;
+}
+
+@media (max-width: 768px) {
+    .gallery-prev, .gallery-next {
+        padding: 10px;
+        font-size: 14px;
+    }
 }
 
 .artist-name {
@@ -253,7 +336,6 @@ footer {
 
     .bio-text {
         font-size: .9rem;
-        margin-bottom: 30px;
         max-height: 4.5rem;
         transition: max-height 2s ease;
         overflow: hidden;
@@ -320,7 +402,6 @@ footer {
     }
 
     .bio-text {
-        max-height: 4.5rem;
         transition: max-height 2s ease;
     }
 
@@ -331,7 +412,6 @@ footer {
 
 @media (max-width: 359px) {
     .bio-text {
-        max-height: 4.5rem;
         transition: max-height 3s ease;
     }
 
