@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const track = document.querySelector('.gallery-track');
     const prevBtn = document.querySelector('.gallery-prev');
     const nextBtn = document.querySelector('.gallery-next');
+    const dotsContainer = document.querySelector('.gallery-dots');
     
     const photos = [
         '/images/photos/1.jpg',
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentIndex = 0;
     let isAnimating = false;
+    let dots = [];
     
     // Функция для создания слайда
     function createSlide(photoSrc) {
@@ -26,10 +28,46 @@ document.addEventListener('DOMContentLoaded', function() {
         return slide;
     }
     
+    // Функция создания точек
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        dots = [];
+        
+        for (let i = 0; i < photos.length; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'gallery-dot';
+            dot.dataset.index = i;
+            // dot.addEventListener('click', () => {
+            //     const direction = i > currentIndex ? 'next' : 'prev';
+            //     currentIndex = i;
+            //     updateGallery(direction);
+            //     updateDots();
+            // });
+            
+            dotsContainer.appendChild(dot);
+            dots.push(dot);
+        }
+        
+        updateDots();
+    }
+    
+    // Функция обновления активной точки
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
     // Инициализация галереи
     function initGallery() {
         track.innerHTML = '';
         
+        createDots();
+
         // Добавляем предыдущий, текущий и следующий слайды
         const prevIndex = (currentIndex - 1 + photos.length) % photos.length;
         const nextIndex = (currentIndex + 1) % photos.length;
@@ -51,6 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const newPrevIndex = (newIndex - 1 + photos.length) % photos.length;
         const newNextIndex = (newIndex + 1) % photos.length;
         
+        currentIndex = newIndex;
+
+        updateDots();
+        
         // Анимация перехода
         track.style.transition = 'transform 0.5s ease';
         track.style.transform = direction === 'next' 
@@ -60,8 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // После завершения анимации обновляем слайды
         track.addEventListener('transitionend', function handler() {
             track.removeEventListener('transitionend', handler);
-            
-            currentIndex = newIndex;
             
             // Обновляем слайды без анимации
             track.style.transition = 'none';
@@ -105,7 +145,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     track.addEventListener('touchstart', e => {
         touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
+        e.preventDefault();
+    });
     
     track.addEventListener('touchend', e => {
         const touchEndX = e.changedTouches[0].screenX;
@@ -115,5 +156,5 @@ document.addEventListener('DOMContentLoaded', function() {
             if (diff < 0) goToNext();
             else goToPrev();
         }
-    }, { passive: true });
+    });
 });
