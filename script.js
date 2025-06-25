@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const newNextIndex = (newIndex + 1) % photos.length;
         
         currentIndex = newIndex;
-
+        
         updateDots();
         
         // Анимация перехода
@@ -145,8 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     track.addEventListener('touchstart', e => {
         touchStartX = e.changedTouches[0].screenX;
-        e.preventDefault();
-    }, { passive: false });
+    }, { passive: true });
     
     track.addEventListener('touchend', e => {
         const touchEndX = e.changedTouches[0].screenX;
@@ -156,5 +155,5 @@ document.addEventListener('DOMContentLoaded', function() {
             if (diff < 0) goToNext();
             else goToPrev();
         }
-    });
+    }, { passive: true });
 });

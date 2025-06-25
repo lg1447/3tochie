@@ -133,12 +133,12 @@ header {
 }
 
 .gallery-prev {
-    opacity: 0;
+    /* opacity: 0; */
     left: 0px;
 }
 
 .gallery-next {
-    opacity: 0;
+    /* opacity: 0; */
     right: 0px;
 }
 
@@ -331,9 +331,20 @@ footer {
 
 /* Адаптация под мобильные устройства */
 @media (max-width: 768px) {
+    .gallery-container:hover .gallery-prev {
+        opacity: 0;
+        left: 0px;
+    }
+    
+    .gallery-container:hover .gallery-next {
+        opacity: 0;
+        right: 0px;
+    }
+
     .gallery-prev, .gallery-next {
-        width: 36px;
-        height: 36px;
+        opacity: 0;
+        width: 30%;
+        height: 100%;
         padding: 10px;
         font-size: 14px;
     }
